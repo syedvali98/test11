@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="p-5" src="img1.jpg" width="100%">
+            </div>
+            <div class="col-md-6 p-5">
+                <p class="text-secondary">Ashirvaad Atta - whole wheat atta</p>
+                <p><b>Rs.399</b></p>
+                <p>Pack sizes:</p>
+                <button type="button" id="pack1" class="btn btn-outline-secondary">10 kg<br>Rs.399</button>
+                <button type="button" id="pack2" class="btn btn-outline-secondary">5 kg<br>Rs.209</button>
+                <p style="padding-top: 12px;">Quantity</p>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a id="countminus" class="page-link" href="#">-</a></li>
+                        <li class="page-item"><a id="quantity" class="page-link">2</a></li>
+                        <li class="page-item"><a id="countplus" class="page-link" href="#">+</a></li>
+                    </ul>
+                </nav>
+                <div class="row">
+                    <button type="button" id="calculate" class="btn btn-success">Payable price = <span
+                            id="payableprice"></span></button>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img class="py-3" src="img2.jpg" width="100%">
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-6 p-2">
+                        <img src="img3.jpg" width="100%">
+                    </div>
+                    <div class="col-6 p-2">
+                        <img src="img4.jpg" width="100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 p-2">
+                        <img src="img5.jpg" width="100%">
+                    </div>
+                    <div class="col-6 p-2">
+                        <img src="img6.jpg" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            var count = 0;
+            var packsize = 0;
+            $("#pack1").click(function () {
+                $("#pack1").removeClass("btn-outline-secondary");
+                $("#pack1").addClass("btn-success");
+                $("#pack2").addClass("btn-outline-secondary");
+                $("#pack2").removeClass("btn-success");
+                packsize = 399;
+            });
+            $("#pack2").click(function () {
+                $("#pack2").removeClass("btn-outline-secondary");
+                $("#pack2").addClass("btn-success");
+                $("#pack1").addClass("btn-outline-secondary");
+                $("#pack1").removeClass("btn-success");
+                packsize = 209
+            });
+
+            $("#quantity").html(count);
+
+            $("#countplus").click(function () {
+                count++;
+                $("#quantity").html(count);
+
+            });
+            $("#countminus").click(function () {
+                if (count <= 0) {
+
+                }
+                else
+                    count--;
+                $("#quantity").html(count);
+
+            });
+            $("#calculate").click(function () {
+                var total = packsize * count;
+                $("#payableprice").html(total);
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
